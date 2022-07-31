@@ -1,0 +1,19 @@
+{% extends 'balance/base.html' %}
+
+{% block title %}
+Main page
+{% endblock %}
+
+{% block content %}
+    {% if transactions %}
+    <h1> Current balance is {{total_balance}} UAH: </h1>
+    <h2> Last operations: </h2>
+        {% for el in transactions %}
+            <div class="alert alert-warning">
+                <h5>{{el}}</h5>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p> There is no records in the database </p>
+    {% endif %}
+{% endblock %}

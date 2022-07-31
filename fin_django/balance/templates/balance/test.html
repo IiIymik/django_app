@@ -1,0 +1,18 @@
+{% extends 'balance/base.html' %}
+
+{% block title %}
+Detail results page
+{% endblock %}
+
+{% block content %}
+    <h1> Results for the chosen period:: </h1>
+    <hr>
+    {% if test %}
+        {% for el in test %}
+            <h4>{{el}}</h4>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p> There is no records in the database </p>
+    {% endif %}
+{% endblock %}

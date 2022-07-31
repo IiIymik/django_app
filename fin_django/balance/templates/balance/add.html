@@ -1,0 +1,17 @@
+{% extends 'balance/base.html' %}
+
+{% block title %}
+Add page
+{% endblock %}
+
+{% block content %}
+    <h1> Add record: </h1>
+    <hr>
+    <form method=POST >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <hr>
+        <button type="submit" class="btn btn-success">Submit</button>
+        <span>{{error}}</span>
+    </form>
+{% endblock %}

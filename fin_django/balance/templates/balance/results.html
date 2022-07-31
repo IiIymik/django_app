@@ -1,0 +1,26 @@
+{% extends 'balance/base.html' %}
+
+{% block title %}
+Detail results page
+{% endblock %}
+
+{% block content %}
+    {% if set %}
+    <h1> Total sum by the request: {{ total_sum }} UAH</h1>
+    <h2> Operations: </h2>
+        {% for el in set %}
+            <div class="form-control">
+                <h5>{{el}}</h5>
+                <form method=POST>
+                    {% csrf_token %}
+                <input type="checkbox" id="delete" name="delete" value={{el.id}}>
+                <label for="delete">Delete:</label>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p> There is no such records in the database </p>
+    {% endif %}
+
+{% endblock %}
